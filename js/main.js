@@ -29,3 +29,18 @@ function linkAction(){
     navMenu.classList.remove('show-menu')
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
+
+/*==================== CHANGE BACKGROUND HEADER ====================*/
+function scrollLink(){
+    const header = document.querySelector('header');
+    header.classList.toggle('sticky', window.scrollY > 10);
+}
+window.addEventListener('scroll', scrollLink)
+
+
+
+
+
+
+
+
