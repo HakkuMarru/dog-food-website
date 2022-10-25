@@ -114,6 +114,11 @@ section {
   font-weight: 700;
   font-size: 2.5em;
   text-decoration: none;
+  transition: .3s;
+}
+.menu__link:hover {
+	color: #0072A8;
+  transition: .3s;
 }
 .nav__close {}
 .nav__toggle {
@@ -182,7 +187,7 @@ header.sticky {
 	grid-row-gap: 1em;
 }
 .home__column {
-	padding: 1em 0;
+	padding: 0em 0;
 }
 .home__column:nth-child(2) {
 	position: relative;
@@ -201,11 +206,14 @@ header.sticky {
 }
 .msg-bubble {
 	position: absolute;
-	height: 90%;;
+	height: 80%;
+}
+.bubble__sparkles {
+	display: none;
 }
 .bubble__text {
 	font-family: 'Amatic SC';
-	font-size: 3.7em;
+	font-size: 3.4em;
 	font-weight: 700;
 	color: #0072a8;
 	transform: rotate(-18.25deg);
@@ -255,6 +263,14 @@ header.sticky {
 .about__dog-img {
 	width: 100%;
 }
+.bottom-sparkle-white {
+	display: none;
+}
+.bottom-sparkle-black {
+	height: 100px;
+	margin-top: -2.5em;
+	filter: invert(1);
+}
 .about__text {
 	padding: 0 2em;
 	color: #3d3d3d;
@@ -302,7 +318,7 @@ header.sticky {
 	letter-spacing: normal;
 	color: #ffffff;
 }
-.ingreient__description {
+.ingredient__description {
 	color: #ffffff;
 	padding: 0 1em;
 }
@@ -329,8 +345,16 @@ header.sticky {
 .more__image {
 	width: 100%;
 }
+.more__image {
+	position: relative;
+}
 .more__img {
 	width: 100%;
+}
+.right-sparkle {
+	position: absolute;
+	left: 82%;
+	height: 120px;
 }
 
 /*========== BREEDS ==========*/
@@ -367,7 +391,7 @@ input[type=text] {
 .breeds__button {}
 .breeds__btn {}
 .breeds__image {}
-.brees__img {}
+.breeds__img {}
 .breeds__description {
 	font-family: Montserrat;
 	font-size: 16.7px;
@@ -430,7 +454,11 @@ input[type=text] {
 .social-icon {
 	padding: 0 .5em;
 }
-.social-icn {}
+.social-icn {
+}
+.social-icn:hover {
+	filter: invert(30%) sepia(95%) saturate(898%) hue-rotate(167deg) brightness(94%) contrast(102%);
+}
 .footer__puppy {}
 .footer__message {
 	position: relative;
@@ -489,19 +517,34 @@ input[type=text] {
 	}
 	.home__dog-img {
 		width: 400px;
+		margin-bottom: -3.5em;
+	}
+	.bubble__sparkles {
+		display: block;
+		position: absolute;
+		width: 387px;
+		transform: rotate(-20deg);
+		padding-bottom: 4em;
 	}
 	.home__food-bag,
 	.about__food-bag-img,
 	.products__img {
     width: 400px;
 	}
+	.about {
+		z-index: 2;
+	}
 	.about__dog-image {
+	}
+	.right-sparkle {
+		left: 80%;
+		height: 150px;
 	}
 	.ingredient__title {
 		padding: 0 .5em;
 	}
 	.more__img {
-		width: 400px;
+		width: 380px;
 	}
 	.footer__logo {
 		padding: 0 1.25em 0 0;
@@ -513,7 +556,24 @@ input[type=text] {
 		display: none;
 	}
 }
-
+@media screen and (min-width: 500px){
+	.right-sparkle {
+		left: 75%;
+		height: 150px;
+	}
+}
+@media screen and (min-width: 600px){
+	.right-sparkle {
+		left: 72.5%;
+		height: 150px;
+	}
+}
+@media screen and (min-width: 700px){
+	.right-sparkle {
+		left: 70%;
+		height: 150px;
+	}
+}
 /*===== Tablet =====*/
 @media screen and (min-width: 758px){
 	.nav__menu {
@@ -541,13 +601,23 @@ input[type=text] {
 		left: -20px;
 		width: 120%;
 	}
+	.bubble__sparkles {
+		display: block;
+		position: absolute;
+		width: 390px;
+		transform: rotate(-20deg);
+		padding-bottom: 6em;
+		padding-left: 2em;
+	}
 	.msg-bubble {
-		width: 100%;
+		width: 270px;
 	}
 	.home__dog-img {
 		width: 100%;
+		margin-bottom: 0;
 	}
 	.bubble__text {
+		font-weight: 700;
 		font-size: 3.25em;
 	}
 	.about__row {
@@ -557,6 +627,7 @@ input[type=text] {
 	}
 	.about {
 		padding-top: 1em;
+		z-index: 1;
 	}
 	.about__column {
 		width: 50%;
@@ -567,8 +638,9 @@ input[type=text] {
 	}
 	.about__title {
 		text-align: start;
-		padding-left: 2em;
-		margin-bottom: -2em;
+		padding-top: .25em;
+		padding-left: 2.5em;
+		margin-bottom: -2.5em;
 	}
 	.about__link {
 		padding-left: 3em;
@@ -584,6 +656,10 @@ input[type=text] {
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+	}
+	.right-sparkle {
+		left: 80%;
+		height: 140px;
 	}
 	.breeds__container {
 		padding: 3em 1em;
@@ -650,21 +726,80 @@ input[type=text] {
 	.home__food-bag {
 		top: -110px;
 	}
+	.bubble__text {
+		font-size: 3.5em;
+	}
+	.about__row {
+		width: 100%;
+	}
+	.about__column {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		width: 33.333%;
+	}
+	.about__column:first-child {
+		align-items: start;
+	}
 	.about__title {
-			padding-top: .5em;
-	    padding-left: 3em;
-	    margin-bottom: -2.25em;
+			padding-top: 0.5em;
+	    padding-left: 1em;
+	    margin-bottom: 0em;
 	}
 	.about__text {
-		padding-right: 4em;
+		text-align: left;
+		padding: 0 0 0 2em;
 	}
-	.ingreient__description {
+	.about__link {
+		align-self: start;
+		padding: 1em 0 0 3em;
+	}
+	.about__food-bag-img {
+		width: 100%;
+		padding-right: 1em;
+	}
+	.ingredient__description {
 		padding: 0 4em;
+	}
+	.more {
+		padding-bottom: 4em;
+	}
+	.breeds__row {
+		width: 100%;
+		justify-content: space-evenly;
+	}
+	.breeds__column {
+		align-items: start;
+		text-align: left;
+	}
+	.breeds__btn {
+		margin-left: 3.25em;
+	}
+	.breeds__search {
+		margin-left: 4em;
+	}
+	.breeds__image {
+		position: relative;
+		width: 250px;
+		height: 300px;
+	}
+	.breeds__img {
+		position: absolute;
+		top: -42%;
+		left: 0;
+	}
+	.breeds__description {
+		padding: 0 3.3em;
 	}
 	.footer__container {
 		display: flex;
 		flex-direction: row-reverse;
 		justify-content: start;
+	}
+	.products {
+		padding-top: 4em;
 	}
 	.footer__body {
 		display: flex;
@@ -718,14 +853,178 @@ input[type=text] {
 
 /*===== Laptop =====*/
 @media screen and (min-width: 1014px){
+	.home__title {
+		margin: 0 auto -1em;
+		width: 750px;
+	}
+	.home__column {}
+	.home__column:nth-child(2) {
+		padding-top: 9%;
+		height: 310px;
+	}
+	.home__food-bag {
+	   width: 400px;
+	   padding-left: 10%;
+	   z-index: 2;
+	}
+	.bubble__sparkles {
+		display: block;
+		position: absolute;
+		width: 520px;
+		transform: rotate(-20deg);
+		padding-bottom: 7em;
+	}
+	.msg-bubble {
+	  width: 340px;
+	  object-fit: cover;
+	}
+	.bubble__text {
+	  font-size: 4.25em;
+	  padding-right: .25em;
+	}
+	.about__title {
+		margin-bottom: -.5em;
+    padding-left: 2em;
+	}
+	.about__dog-img {
+	    width: 125%;
+	}
+	.bottom-sparkle-black {
+		height: 120px;
+		margin-top: -4em;
+	}
+	.about__column:nth-child(2) {
+		padding-left: 1em;
+		width: 38.665%;
+	}
+	.about__column:nth-child(3) {
+		padding-left: 1em;
+		width: 28%;
+	}
+	.footer {
+		background-color: white;
+		padding: 0 2.5em 2.5em;
+	}
+	.footer__container {
+		background-color: #EEEEF0;
+	}
+	.footer__message {
+		padding-top: 25%;
+	}
+	.footer__bubble-flipped {
+		width: 140%;
+	}
+}
 
+@media screen and (min-width: 1200px){
+	.menu__li {
+	    padding: 0.4em 2em 0 1.25em;
+	}
+	.home__title {
+		margin: 0 auto -1.75em;
+		width: 800px;
+	}
+	.home__column:nth-child(1) {
+		width: 21%;
+	}
+	.home__column:nth-child(2) {
+		padding-top: 8.5%;
+		padding-left: 10em;
+		height: 350px;
+		width: 45%;
+	}
+	.home__column:nth-child(3) {
+		width: 34%;
+	}
+	.bubble__sparkles {
+		width: 575px;
+		transform: rotate(-20deg);
+		padding-bottom: 6em;
+	}
+	.msg-bubble {
+	  width: 380px;
+	  object-fit: cover;
+	}
+	.bubble__text {
+	  font-size: 4.75em;
+	  padding-right: .25em;
+	}
+	.home__food-bag {
+	   width: 500px;
+	   top: -175px;
+	}
+	.right-sparkle {
+		position: absolute;
+		left: 80%;
+	}
+	.ingredient__description {
+		margin: 0 auto;
+		width: 65%;
+	}
+	.more__container,
+	.proucts__container {
+		padding: 3em 12.5%;
+	}
+	.breeds__container {
+	  padding: 3em 6em;
+	}
+	.footer__message {
+		padding-top: 35%;
+		margin-right: -52.5%;
+	}
+	.footer__bubble-flipped {
+		width: 150%;
+	}
+	.footer__logo {
+		width: 260px;
+	}
+}
+@media screen and (min-width: 1240px){
+	.about__dog-img {
+	    margin-bottom: -48%;
+	    width: 145%;
+	}
+	.bottom-sparkle-white {
+		display: block;
+		position: absolute;
+		padding-top: 6em;
+		left: 90px;
+		width: 170px;
+	}
+	.bottom-sparkle-black {
+		display: none;
+	}
+	.about__title {
+		margin-bottom: -2em;
+	   padding-left: 3.25em;
+	}
 }
 
 /*===== Laptop L =====*/
-@media screen and (min-width: 1430px){
-
+@media screen and (min-width: 1400px){
+	.home__title {
+		margin: 0 auto -2.5em;
+		width: 800px;
+	}
+	.home__column:nth-child(2) {
+		padding-left: 13em;
+	}
+	.home__food-bag {
+		width: 180%;
+	   top: -190px;
+	}
+	.footer__bubble-flipped {
+		width: 170%;
+	}
+	.footer__logo {
+		width: 290px;
+	}
 }
-
+@media screen and (min-width: 1473px){
+	.breeds__container {
+	  padding: 3em 8em 3em 6em;
+	}
+}
 
 
 
