@@ -37,9 +37,16 @@ function scrollLink(){
 }
 window.addEventListener('scroll', scrollLink)
 
+/*==================== SCROLL REVEAL ANIMATION ====================*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 2000,
+    delay: 200,
+})
 
-
-
+sr.reveal(`.home__title, .home__column, .about__title, .ingredient__title, .about__column:nth-child(2), .about__food-bag-img, .ingredient__description, .more__body, .more__image, .breeds__column, .products__column, .footer`)
+sr.reveal(`.about__dog-img, .bottom-sparkle-black, .bottom-sparkle-white`, {origin: 'left'})
 
 
 
